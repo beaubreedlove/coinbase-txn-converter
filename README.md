@@ -27,7 +27,7 @@ When exporting transaction details from Coinbase, the raw data can be both detai
 
 2. **Execute the Script**:
 ```
-   python script_name.py input_file.csv output_file.csv
+   python convert-transactoins.py input_file.csv output_file.csv
 ```
 
 3. **Review the Processed Data**: The `output_file.csv` will contain the optimized data ready for your capital gains tax software.
@@ -57,6 +57,6 @@ This tool is [MIT](https://choosealicense.com/licenses/mit/) licensed, meaning y
 
 ## Contact
 
-Your Name - your.email@example.com
+Beau Breedlove - beaubreedlove@gmail.com
 
 Repository: [https://github.com/beaubreedlove/coinbase-txn-converter](https://github.com/beaubreedlove/coinbase-txn-converter)
