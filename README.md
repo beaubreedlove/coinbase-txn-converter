@@ -8,7 +8,7 @@ This script is designed to streamline the transaction activity data that Coinbas
 
 2. **Financial Advice**: This tool is not intended to provide financial advice. Cryptocurrency investments carry high risks. Only invest what you can afford to lose. Before making any financial decisions, it's essential to consult with a financial advisor or professional.
 
-3. **Securities Warning**: The U.S. Securities and Exchange Commission (SEC) has opined that most cryptocurrencies, with the notable exception of Bitcoin, may be regarded as securities. Always exercise due diligence and research before making investment decisions.
+3. **Securities Warning**: The U.S. Securities and Exchange Commission (SEC) has opined that most cryptocurrencies, with the notable exception of Bitcoin, may be regarded as securities. The SEC has even approached Coinbase directly to halt trading of all crypto assets except Bitcoin. Always exercise due diligence and research before making investment decisions.
 
 4. **Exchange and Trading Risks**: Keeping your coins on exchanges can carry high risks, including but not limited to hacking, mismanagement, and regulatory interventions. Trading cryptocurrencies also introduces its own set of risks due to market volatility. Consider using private wallets and employ security best practices when storing and trading your cryptocurrencies.
 
