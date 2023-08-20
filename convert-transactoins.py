@@ -26,12 +26,12 @@ def process_csv(input_file_path, output_file_path):
                 buy_asset = row['Asset Acquired']
                 buy_amount = float(row['Quantity Acquired (Bought, Received, etc)']) if row['Quantity Acquired (Bought, Received, etc)'] else 0.0
                 sell_asset = 'USD'
-                sell_amount = float(row['Proceeds (excl. fees and/or spread) (USD)']) if row['Proceeds (excl. fees and/or spread) (USD)'] else 0.0
+                sell_amount = float(row['Cost Basis (incl. fees and/or spread) (USD)']) if row['Cost Basis (incl. fees and/or spread) (USD)'] else 0.0
             else:
                 sell_asset = row['Asset Disposed (Sold, Sent, etc)']
                 sell_amount = float(row['Quantity Disposed']) if row['Quantity Disposed'] else 0.0
                 buy_asset = 'USD'
-                buy_amount = float(row['Cost Basis (incl. fees and/or spread) (USD)']) if row['Cost Basis (incl. fees and/or spread) (USD)'] else 0.0
+                buy_amount = float(row['Proceeds (excl. fees and/or spread) (USD)']) if row['Proceeds (excl. fees and/or spread) (USD)'] else 0.0
 
             key = (date_str, buy_asset, sell_asset)
             transactions[key]['Buy Amount'] += buy_amount
