@@ -1,9 +1,9 @@
 import csv
 import argparse
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, date
 
-def process_csv(input_file_path, output_file_path):
+def process_csv(input_file_path, output_file_path, start_date, end_date):
     transactions = defaultdict(lambda: defaultdict(float))
     ignored_transaction_types = set()
 
@@ -11,6 +11,15 @@ def process_csv(input_file_path, output_file_path):
         csv_reader = csv.DictReader(infile)  # No need to specify a delimiter for commas; it's the default.
 
         for row in csv_reader:
+            # Convert the string date from the row into a date object
+            row_date = date.fromisoformat(row['Date & time'].split("T")[0])
+
+            # If start_date or end_date is provided, filter rows based on these dates
+            if start_date and row_date < start_date:
+                continue
+            if end_date and row_date > end_date:
+                continue
+
             transaction_type = row['Transaction Type']
             valid_types = ["Advanced trade trade", "Buy", "Converted from", "Sell"]
 
@@ -50,12 +59,17 @@ def process_csv(input_file_path, output_file_path):
 
 def main():
     parser = argparse.ArgumentParser(description="Process a CSV file.")
-    parser.add_argument('input', help="Path to the input CSV file.")
-    parser.add_argument('output', help="Path to the output file.")
+    parser.add_argument('input', type=str, help="Path to the input CSV file.")
+    parser.add_argument('output', type=str, help="Path to the output file.")
+    parser.add_argument('--start_date', type=str, help='Starting date for filtering in YYYY-MM-DD format.', default=None)
+    parser.add_argument('--end_date', type=str, help='Ending date for filtering in YYYY-MM-DD format.', default=None)
 
     args = parser.parse_args()
 
-    process_csv(args.input, args.output)
+    start_date = date.fromisoformat(args.start_date) if args.start_date else None
+    end_date = date.fromisoformat(args.end_date) if args.end_date else None
+
+    process_csv(args.input, args.output, start_date, end_date)
 
 if __name__ == "__main__":
     main()

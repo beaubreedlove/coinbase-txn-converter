@@ -27,8 +27,21 @@ When exporting transaction details from Coinbase, the raw data can be both detai
 
 2. **Execute the Script**:
 ```
-   python convert-transactoins.py input_file.csv output_file.csv
+   python convert-transactoins.py [input_file] [output_file] [--start_date YYYY-MM-DD] [--end_date YYYY-MM-DD]
 ```
+
+- `input_file`: Path to the raw transaction CSV report from Coinbase.
+- `output_file`: Path where the converted CSV will be saved.
+- `--start_date`: (Optional) Filters the transactions to include only those on or after this date. Format: `YYYY-MM-DD`.
+- `--end_date`: (Optional) Filters the transactions to include only those on or before this date. Format: `YYYY-MM-DD`.
+
+Example:
+
+```
+    python convert-transactoins.py raw_transactions.csv converted_transactions.csv --start_date 2023-01-01 --end_date 2023-12-31
+```
+
+This will convert the `raw_transactions.csv` and save the result to `converted_transactions.csv`, only including transactions between January 1, 2023, and December 31, 2023.
 
 3. **Review the Processed Data**: The `output_file.csv` will contain the optimized data ready for your capital gains tax software.
 
