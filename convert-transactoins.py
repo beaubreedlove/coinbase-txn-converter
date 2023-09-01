@@ -1,7 +1,15 @@
+
+
+
+print("===================== TODO: Make it so if you buy, then sell, then buy back in a given day it separates the buys into 2")
+
 import csv
 import argparse
 from collections import defaultdict
 from datetime import datetime, date
+
+def format_amount(amount):
+    return '{:.8f}'.format(round(float(amount), 8))
 
 def process_csv(input_file_path, output_file_path, start_date, end_date):
     transactions = defaultdict(lambda: defaultdict(float))
@@ -52,7 +60,7 @@ def process_csv(input_file_path, output_file_path, start_date, end_date):
         csv_writer.writerow(headers)
 
         for key, amounts in transactions.items():
-            csv_writer.writerow([key[0], key[1], amounts['Buy Amount'], key[2], amounts['Sell Amount']])
+            csv_writer.writerow([key[0], key[1], format_amount(amounts['Buy Amount']), key[2], format_amount(amounts['Sell Amount'])])
 
     if ignored_transaction_types:
         print(f"Ignored Transaction Types: {', '.join(ignored_transaction_types)}")
